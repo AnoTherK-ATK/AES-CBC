@@ -67,7 +67,7 @@ signed main(){
     cin >> siv;
     cin.ignore();
     iv = hexToBinary(siv);
-    cout << "choose for encryption or decryption: ";
+    cout << "choose for encryption(1) or decryption(2): ";
     int mode;
     cin >> mode;
     cin.ignore();
