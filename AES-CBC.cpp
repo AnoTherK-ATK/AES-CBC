@@ -62,11 +62,11 @@ signed main(){
     cout << "Enter the key: ";
     cin >> skey;
     cin.ignore();
-    key = stringToBinary(skey);
+    key = hexToBinary(skey);
     cout << "Enter the iv: ";
     cin >> siv;
     cin.ignore();
-    iv = stringToBinary(siv);
+    iv = hexToBinary(siv);
     cout << "choose for encryption or decryption: ";
     int mode;
     cin >> mode;
@@ -78,7 +78,6 @@ signed main(){
             getline(cin, plain);
             plainBinary = stringToBinary(plain);
             cipherBinary = cbc.encrypt(plainBinary);
-            //cipher = binaryToString(CBC(stringToBinary(key), stringToBinary(iv)).encrypt(stringToBinary(plain)));
             cout << "Cipher text: " << binaryToHex(cipherBinary) << endl;
             break;
         case 2:
@@ -86,8 +85,6 @@ signed main(){
             getline(cin, cipher);
             cipherBinary = hexToBinary(cipher);
             plainBinary = cbc.decrypt(cipherBinary);
-
-            //plain = binaryToString(CBC(stringToBinary(key), stringToBinary(iv)).decrypt(hexToBinary(cipher)));
             cout << "Plain text: " << binaryToString(plainBinary) << endl;
             break;
         default:

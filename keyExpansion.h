@@ -33,10 +33,11 @@ vector<vector<unsigned char>> keyExpansion(vector<unsigned char> &key){
         if(i % 4 == 0){
             temp = rotWord(temp);
             temp = subWord(temp);
+            for (int j = 0; j < 4; j++) {
+                temp[j] ^= RCON[(i - 4) / 4][j];
+            }
         }
-        for (int j = 0; j < 4; j++) {
-            temp[j] ^= RCON[(i - 4) / 4][j];
-        }
+        
         std::vector<uint8_t> new_round_key(4);
         for (int j = 0; j < 4; j++) {
             new_round_key[j] = round_keys[i - 4][j] ^ temp[j];

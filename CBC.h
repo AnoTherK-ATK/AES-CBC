@@ -14,12 +14,13 @@ public:
     vector<unsigned char> pkcs7Padding(vector<unsigned char> &data){
         int padding = 16 - (data.size() % 16);
         for(int i = 0; i < padding; i++){
-            data.push_back(padding);
+            data.push_back((unsigned char)padding);
         }
         return data;
     }
     vector<unsigned char> pkcs7Unpadding(vector<unsigned char> &data){
         int padding = data[data.size()-1];
+        if(padding > 16) return data;
         for(int i = 0; i < padding; i++){
             data.pop_back();
         }

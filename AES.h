@@ -96,7 +96,7 @@ public:
     vector<vector<unsigned char>> addRoundKey(vector<vector<unsigned char>> &state, int round){
         for(int i = 0; i < 4; i++){
             for(int j = 0; j < 4; j++){
-                state[i][j] ^= round_keys[round*4+i][j];
+                state[j][i] ^= round_keys[round*4+i][j];
             }
         }
         return state;

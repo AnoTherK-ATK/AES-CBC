@@ -9,7 +9,6 @@
 				"-fdiagnostics-color=always",
 				"-g2",
 				"-march=native",
-				"-O2",
 				"${file}",
 				"-o",
 				"${fileDirname}\\${fileBasenameNoExtension}.exe",
